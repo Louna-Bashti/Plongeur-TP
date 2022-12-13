@@ -18,13 +18,13 @@ public class Embauche {
         this.employeur = employeur;
     }
 
+
     /**
      * Termine cette embauche
      * @param dateFin la date à laquelle cette embauche est terminée
      */
     public void terminer(LocalDate dateFin) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+        setFin(dateFin);
     }
     
     /**

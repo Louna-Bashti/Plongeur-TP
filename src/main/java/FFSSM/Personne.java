@@ -9,24 +9,21 @@ import java.time.LocalDate;
 public class Personne
 {
 	public String numeroINSEE;
-	
 	public String nom;
-	
 	public String prenom;
-	
 	public String adresse;
-	
 	public String telephone;
-	
 	public LocalDate naissance;
+    public GroupeSanguin groupe;
 
-    public Personne(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance) {
+    public Personne(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance, GroupeSanguin groupe) {
         setNumeroINSEE(numeroINSEE); // Le mutateur fait le contrôle non null
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.telephone = telephone;
         this.naissance = naissance;
+        this.groupe = groupe;
     }
 
     public String getNumeroINSEE() {

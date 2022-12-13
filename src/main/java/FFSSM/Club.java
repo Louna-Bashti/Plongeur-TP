@@ -3,18 +3,12 @@
  */
 package FFSSM;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Club {
-
- 
     public Moniteur president;
-
     public String nom;
-
     public String adresse;
-
     public String telephone;
 
     public Club(Moniteur président, String nom, String telephone) {
@@ -23,6 +17,9 @@ public class Club {
         this.telephone = telephone;
     }
 
+    public ArrayList<Plongee> plongees = new ArrayList<>();
+    public TreeSet<Plongee> plongeesNonConformes = new TreeSet<>(Comparator.comparing(Plongee::getDate));
+
     /**
      * Calcule l'ensemble des plongées non conformes organisées par ce club.
      * Une plongée est conforme si tous les plongeurs de la palanquée ont une licence
@@ -30,8 +27,12 @@ public class Club {
      * @return l'ensemble des plongées non conformes
      */
     public Set<Plongee> plongeesNonConformes() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        for(int i = 0; i<plongees.size(); i++){
+            if (plongees.get(i).estConforme()==false){
+                plongeesNonConformes.add(plongees.get(i));
+            }
+        }
+        return plongeesNonConformes;
     }
 
     /**
@@ -39,11 +40,8 @@ public class Club {
      * @param p la nouvelle plongée
      */
     public void organisePlongee(Plongee p) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        plongees.add(p);
     }
-    
-    
     public Moniteur getPresident() {
         return president;
     }

@@ -4,6 +4,7 @@
 package FFSSM;
 
 import java.time.LocalDate;
+import java.util.TreeSet;
 
 public class Licence {
 
@@ -45,8 +46,9 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(LocalDate d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
-    }
+        LocalDate datefinValidite = getDelivrance().plusYears(1);
+        if (datefinValidite.isAfter(d)) return true;
+        else return false;
 
+    }
 }
